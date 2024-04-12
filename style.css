@@ -1,4 +1,10 @@
 :root {
+  --light-theme-background-color: #fff;
+  --light-theme-color: rgb(255, 119, 0);
+  --dark-theme-background-color: #464646;
+  --dark-theme-color: rgb(212, 255, 0);
+  --font-size: 1rem;
+  --animation-time: 0.5s;
 }
 
 *,
@@ -6,7 +12,106 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
+  font-size: var(--font-size);
 }
 
 body {
+  background-color: var(--light-theme-background-color);
+  position: relative;
+  min-height: 100vh;
+  transition: var(--animation-time) ease-in-out;
+}
+
+/******************* Swap Themes Button ****************/
+body > .swap-theme-button-container {
+  background-color: var(--light-theme-color);
+  cursor: pointer;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  border-radius: 10px;
+  color: var(--light-theme-background-color);
+}
+
+body > .swap-theme-button-container > label {
+  font-size: calc(var(--font-size) * 1.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+body > .swap-theme-button-container > label > .material-symbols-outlined {
+  font-size: calc(var(--font-size) * 2);
+}
+
+body > .swap-theme-button-container > input {
+  width: 0;
+  height: 0;
+}
+/******************* Background Theme ****************/
+body > .background-theme-container {
+  width: 100vw;
+  height: 50vw;
+  overflow: hidden;
+}
+
+body > .background-theme-container > .rotate-part {
+  width: 100vw;
+  height: 100vw;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: var(--animation-time) ease-in-out;
+}
+
+body > .background-theme-container > .rotate-part > .light-theme {
+  width: 100vw;
+  height: 50vw;
+  position: relative;
+}
+
+body
+  > .background-theme-container
+  > .rotate-part
+  > .dark-theme
+  > .material-symbols-outlined,
+body
+  > .background-theme-container
+  > .rotate-part
+  > .light-theme
+  > .material-symbols-outlined {
+  font-size: calc(var(--font-size) * 4);
+  position: absolute;
+  width: 4rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+body
+  > .background-theme-container
+  > .rotate-part
+  > .light-theme
+  > .material-symbols-outlined {
+  top: 4rem;
+  color: var(--light-theme-color);
+}
+
+body > .background-theme-container > .rotate-part > .dark-theme {
+  width: 100vw;
+  height: 50vw;
+  position: relative;
+}
+
+body
+  > .background-theme-container
+  > .rotate-part
+  > .dark-theme
+  > .material-symbols-outlined {
+  bottom: 4rem;
+  transform: rotate(180deg);
+  color: var(--dark-theme-color);
 }
