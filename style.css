@@ -4,7 +4,7 @@
   --dark-theme-background-color: #464646;
   --dark-theme-color: rgb(212, 255, 0);
   --font-size: 1rem;
-  --animation-time: 0.5s;
+  --animation-time: 1s;
 }
 
 *,
@@ -34,6 +34,7 @@ body > .swap-theme-button-container {
   display: flex;
   border-radius: 10px;
   color: var(--light-theme-background-color);
+  z-index: 999;
 }
 
 body > .swap-theme-button-container > label {
@@ -61,11 +62,13 @@ body > .background-theme-container {
 }
 
 body > .background-theme-container > .rotate-part {
+  --rotate: 0;
   width: 100vw;
   height: 100vw;
   border-radius: 50%;
   overflow: hidden;
   transition: var(--animation-time) ease-in-out;
+  transform: rotate(calc(var(--rotate) * 1deg));
 }
 
 body > .background-theme-container > .rotate-part > .light-theme {
